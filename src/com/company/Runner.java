@@ -16,7 +16,7 @@ public class Runner extends Thread {
             System.out.println(getName() + " берет палочку");
             System.out.println(" Runner 5 идет к финишу ");
             System.out.println(getName() + " бежит к Runner 4");
-        } else if (getNum() == 1) {
+        } else if (getNum() == 0) {
             System.out.println(getName() + " бежит к Runner " + getNum());
             System.out.println(" Runner " + getNum() + " берет палочку");
         } else {
@@ -24,9 +24,13 @@ public class Runner extends Thread {
             System.out.println(getName() + " бежит к Runner " + getNum());
         }
         try {
-            sleep(5000);
+            sleep(100);
         } catch (InterruptedException ie) {
             ie.printStackTrace();
+        }finally {
+            if (getNum() == 1){
+                System.out.println(" Runner 1 берет палочку");
+            }
         }
     }
 }
